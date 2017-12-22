@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-employee-item></app-employee-item>
+    <hr>
+    <ul class="list-group">
+      <a
+        class="list-group-item"
+        style="cursor: pointer"
+        *ngFor="let employeeEl of employees; let i = index"
+        (click)="onEditItem(i)"
+      >
+        {{employeeEl.id}}: {{ employeeEl.firstname }} ({{ employeeEl.lastname }})
+      </a>
+    </ul>
+  </div>
+</div>
