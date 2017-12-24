@@ -89,6 +89,6 @@ export class EmployeeService {
     }
     
     newEmployee(): Employee {
-        return new Employee(this.getNewId(), '', '', '' );
+        return new Employee(this.getNewId(), '', '', '', '' );
     }
 }

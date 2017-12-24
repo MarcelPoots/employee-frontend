@@ -9,7 +9,7 @@
         *ngFor="let employeeEl of employees; let i = index"
         (click)="onEditItem(i)"
       >
-        {{employeeEl.id}}: {{ employeeEl.firstname }} ({{ employeeEl.lastname }})
+        {{employeeEl.id}}: {{ employeeEl.firstname }} {{ employeeEl.lastname }} gender: {{employeeEl.gender}}
       </a>
     </ul>
   </div>

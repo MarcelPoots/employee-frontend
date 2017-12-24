@@ -43,7 +43,8 @@ export class EmployeeItemComponent implements OnInit, OnDestroy {
           this.editedItem = this.employeeService.getEmployee(index);
           this.slForm.setValue({
             firstname: this.editedItem.firstname,
-            lastname: this.editedItem.lastname
+            lastname: this.editedItem.lastname,
+            gender: this.editedItem.gender
           })
         }
       );
@@ -51,13 +52,14 @@ export class EmployeeItemComponent implements OnInit, OnDestroy {
 
   onSubmit(form: NgForm) {
     const value = form.value;
-    const newEmployee = new Employee(this.employeeService.listCount() * -1, '',value.firstname, value.lastname);
+    const newEmployee = new Employee(this.employeeService.listCount() * -1, '',value.firstname, value.lastname, value.gender);
     
     
     if (this.editMode) {
         console.log("EDITMODE " + value.firstname + ",  " + value.lastname);
         this.editedItem.firstname = value.firstname;
         this.editedItem.lastname  = value.lastname;
+        this.editedItem.gender  = value.gender;
         this.employeeService.updatEmployee(this.editedItemIndex, this.editedItem).subscribe( (response) => {
           console.log(response);
         }) ;
