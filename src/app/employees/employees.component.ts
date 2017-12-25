@@ -4,7 +4,7 @@ import {Component, OnInit} from '@angular/core';
 
 import { Subscription } from 'rxjs/Subscription';
 import { HttpClient } from '@angular/common/http';
-
+import { PagerService } from '../_services/index'
 
 @Component({
   selector: 'app-employees',
@@ -17,7 +17,14 @@ export class EmployeesComponent implements OnInit {
   employee: Employee = this.employeeService.newEmployee();
   emp: Employee;
 
-  constructor(private employeeService: EmployeeService, private http: HttpClient) {
+  // pager object
+  pager: any = {};
+  // paged items
+  pagedItems: any[]= [{"id":19,"username":"user-19","firstname":"Mirjam","lastname":"Adrichem","gender":"V"}];
+
+  constructor(private employeeService: EmployeeService, 
+              private http: HttpClient, 
+              private pagerService: PagerService) {
   }
   
   ngOnInit() {
@@ -25,14 +32,36 @@ export class EmployeesComponent implements OnInit {
       .subscribe(
         (employees: Employee[]) => {
           this.employees = employees;
+          this.setPage(1);
         }
       );
       this.employeeService.loademployees();
-        this.employees = this.employeeService.getEmployees();
+      this.employees = this.employeeService.getEmployees();
+
   }
 
-  onEditItem(index: number){
-      this.employeeService.startedEditing.next(index);
+  onEditItem(employee : Employee){
+     var i:number;
+     var index: number
+     for(i = 0; i < this.employees.length;i++) {
+         if (employee.id === this.employees[i].id){
+             index = i;
+             break;
+         }
+     }
+     this.employeeService.startedEditing.next(index);
   }
   
+  setPage(page: number) {
+      if (page < 1 || page > this.pager.totalPages) {
+          return;
+      }
+      console.log('.>>'+ this.pagedItems)
+
+      // get pager object from service
+      this.pager = this.pagerService.getPager(this.employees.length, page);
+
+      // get current page of items
+      this.pagedItems = this.employees.slice(this.pager.startIndex, this.pager.endIndex + 1);
+  }  
 }

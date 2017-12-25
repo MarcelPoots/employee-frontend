@@ -14,6 +14,7 @@ import {EmployeeComponent} from './employees/employee/employee.component';
 import {EmployeeItemComponent} from './employees/employee/employee-item/employee-item.component';
 import { HomeComponent } from './home/home.component';
 import {AuthserviceService} from './authservice.service';
+import {PagerService} from './_services/index';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import {AuthserviceService} from './authservice.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [EmployeeService, AuthserviceService],
+  providers: [EmployeeService, AuthserviceService, PagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

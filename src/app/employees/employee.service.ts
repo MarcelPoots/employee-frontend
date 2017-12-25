@@ -31,7 +31,7 @@ export class EmployeeService {
             responseType: 'json'
         } ) .map(
             ( employees ) => {
-                console.log( employees );
+                //console.log( employees );
                 return employees; }
             )
             .subscribe(
