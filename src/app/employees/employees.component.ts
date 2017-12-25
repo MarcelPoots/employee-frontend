@@ -20,7 +20,7 @@ export class EmployeesComponent implements OnInit {
   // pager object
   pager: any = {};
   // paged items
-  pagedItems: any[]= [{"id":19,"username":"user-19","firstname":"Mirjam","lastname":"Adrichem","gender":"V"}];
+  pagedItems: any[];
 
   constructor(private employeeService: EmployeeService, 
               private http: HttpClient, 
@@ -56,7 +56,6 @@ export class EmployeesComponent implements OnInit {
       if (page < 1 || page > this.pager.totalPages) {
           return;
       }
-      console.log('.>>'+ this.pagedItems)
 
       // get pager object from service
       this.pager = this.pagerService.getPager(this.employees.length, page);
