@@ -21,13 +21,15 @@
             ngModel
             required>
         <label for="gender">gender</label>
-          <input
-            type="text"
-            id="gender"
-            class="form-control"
-            name="gender"
-            ngModel
-            required>            
+ 		  <select [(ngModel)]="gender"  
+			            type="text" 
+			            id="gender"
+			            class="form-control"
+			            name="gender">
+			<option *ngFor="let gender of genders" value= {{gender.value}}> {{gender.description}}
+			</option>
+		  </select>
+            
         </div>
         </div>
       </div>

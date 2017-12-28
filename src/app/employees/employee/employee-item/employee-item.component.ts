@@ -11,11 +11,15 @@ import { NgForm } from '@angular/forms';
 })
 export class EmployeeItemComponent implements OnInit, OnDestroy {
     
-  @ViewChild('f') slForm: NgForm;
+  @ViewChild('f') 
+  slForm: NgForm;
+  
   subscription: Subscription;
   editMode = false;
   editedItemIndex:number;
   editedItem:Employee;
+  
+  genders = [{value:'V', description: 'Female'}, {value:'M', description: 'Male'}, {value:'', description: 'Unknown'}];
 
   @Input() employee: Employee;
   deleted: string;
