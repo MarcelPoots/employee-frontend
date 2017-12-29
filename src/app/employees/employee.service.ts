@@ -20,7 +20,7 @@ export class EmployeeService {
     constructor( private httpClient: HttpClient ) {
     }
 
-    private setEmployees( employees: Employee[] ) {
+    public setEmployees( employees: Employee[] ) {
         this.employees = employees;
         this.employeesChanged.next( this.employees.slice() );
     }

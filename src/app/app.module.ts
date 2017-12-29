@@ -15,6 +15,7 @@ import {EmployeeItemComponent} from './employees/employee/employee-item/employee
 import { HomeComponent } from './home/home.component';
 import {AuthserviceService} from './authservice.service';
 import {PagerService} from './_services/index';
+import { EmployeeSearchComponent } from './employees/employee/employee-search/employee-search.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {PagerService} from './_services/index';
     ManagementComponent,
     EmployeeComponent,
     EmployeeItemComponent,
-    HomeComponent
+    HomeComponent,
+    EmployeeSearchComponent
 
   ],
   imports: [
