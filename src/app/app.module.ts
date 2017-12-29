@@ -16,6 +16,9 @@ import { HomeComponent } from './home/home.component';
 import {AuthserviceService} from './authservice.service';
 import {PagerService} from './_services/index';
 import { EmployeeSearchComponent } from './employees/employee/employee-search/employee-search.component';
+import {FormUploadComponent} from './upload/form-upload/form-upload.component';
+
+import {UploadFileService} from './upload/upload-file.service';
 
 
 @NgModule({
@@ -27,7 +30,8 @@ import { EmployeeSearchComponent } from './employees/employee/employee-search/em
     EmployeeComponent,
     EmployeeItemComponent,
     HomeComponent,
-    EmployeeSearchComponent
+    EmployeeSearchComponent,
+    FormUploadComponent
 
   ],
   imports: [
@@ -36,7 +40,7 @@ import { EmployeeSearchComponent } from './employees/employee/employee-search/em
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [EmployeeService, AuthserviceService, PagerService],
+  providers: [EmployeeService, AuthserviceService, PagerService, UploadFileService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
